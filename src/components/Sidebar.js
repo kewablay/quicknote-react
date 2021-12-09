@@ -1,5 +1,5 @@
 import React from 'react'
-import addButton from '../images/add.png'
+import addButton from '../images/add-button.png'
 
 function Sidebar() {
     return (

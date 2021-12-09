@@ -4,21 +4,25 @@ import { useParams } from "react-router-dom";
 function NotePage() {
   const { id } = useParams();
   const [note, setNote] = useState(null);
-  
+
   useEffect(() => {
-      getNote()
-  },[{id}])
+    getNote();
+  }, [{ id }]);
 
   const getNote = async () => {
     const res = await fetch(`/api/${id}/`);
     const data = await res.json();
-    console.log(data)
+    console.log(data);
     setNote(data);
   };
 
   return (
-    <div>
-      <p> {note?.body}</p>
+    <div className="note-body">
+      {/* <textarea value={note?.body}> </textarea> */}
+      <div className="note-box">
+        <div className="title-bar"></div>
+        <textarea defaultValue={note?.body}></textarea>
+      </div>
     </div>
   );
 }
