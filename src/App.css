@@ -66,12 +66,16 @@ a {
 .side-bar img {
   margin-top: 1.5rem;
 }
-.notes-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 2rem;
+.notes-list{
+  width: 100%;
 }
 
+.notes-container{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto; 
+}
 .card {
   flex: 1 1 auto;
   background: rgba(128, 128, 128, 0.555);
@@ -92,16 +96,19 @@ backdrop-filter: blur(5px);
 -webkit-backdrop-filter: blur(5px);
 border: 1px solid rgba(255, 255, 255, 0.3); */
 }
-
-.list-item {
+.note-title {
+  margin: 0;
+}
+.card-wrapper {
   position: relative;
 }
 .delete-btn {
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 0.5rem;
+  right: 2.5rem;
   opacity: 0.6;
   z-index: 1000;
+  cursor: pointer;
 }
 
 .note-body {
@@ -152,4 +159,18 @@ textarea {
   backdrop-filter: blur(6.9px);
   -webkit-backdrop-filter: blur(6.9px);
   border: 1px solid rgba(255, 255, 255, 0.27);
+}
+
+.color-list {
+  margin-top: 1rem;
+  background: white;
+}
+
+.color {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  list-style-type: none;
+  margin: auto;
+  margin-top: 1rem;
 }

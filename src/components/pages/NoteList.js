@@ -16,14 +16,15 @@ function NoteList() {
     setNotes(data);
   };
 
-
   return (
     <div className="main-container">
       <Sidebar />
       <div className="notes-list">
-        {notes.map((note) => (
-          <ListItem key={note.id} note={note}  getNotes={getNotes}/>
-        ))}
+        <div className="notes-container">
+          {notes.map((note) => (
+            <ListItem key={note.id} note={note} getNotes={getNotes} />
+          ))}
+        </div>
       </div>
     </div>
   );
