@@ -14,14 +14,28 @@ function ListItem({ note, getNotes }) {
     getNotes();
   };
 
+  const getTitle= (note) => {
+      let title = note.body.split('\n')[0]
+      if(title.length > 45 ){
+        return title.slice(0, 45)
+      }
+      return title  
+  }
+
+  const getDate = (note) => {
+      return new Date(note.updated).toLocaleDateString()
+  }
+
+
   return (
     <div className="list-item">
       <div className="card-wrapper">
         <Link to={`/${note.id}`}>
           <div className="card">
-            <p className="note-title">{note.body}</p>
+            <p className="note-title">{getTitle(note)}</p>
           </div>
         </Link>
+        <span className="time-stamp">{getDate(note)}</span>
         <span onClick={deleteNote} className="delete-btn">
           <img src={deleteIcon} alt="" />
         </span>
@@ -31,3 +45,4 @@ function ListItem({ note, getNotes }) {
 }
 
 export default ListItem;
+

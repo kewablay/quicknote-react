@@ -41,6 +41,20 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+.search-bar{
+  width: 20rem;
+  height: 2.2rem;
+  border-radius: .8rem;
+  padding: .5rem; 
+  background: whitesmoke;
+  opacity: .4;
+  margin-right: 1rem;
+}
+.search-toggle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .navigation {
   display: flex;
 }
@@ -66,15 +80,15 @@ a {
 .side-bar img {
   margin-top: 1.5rem;
 }
-.notes-list{
+.notes-list {
   width: 100%;
 }
 
-.notes-container{
+.notes-container {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
-  margin: auto; 
+  margin: auto;
 }
 .card {
   flex: 1 1 auto;
@@ -84,6 +98,7 @@ a {
   height: 180px;
   border-radius: 1.5rem;
   padding: 1rem;
+  overflow: hidden;
   margin: 1.5rem;
   font-size: 18px;
   font-weight: 400;
@@ -101,6 +116,14 @@ border: 1px solid rgba(255, 255, 255, 0.3); */
 }
 .card-wrapper {
   position: relative;
+}
+.time-stamp {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 2.5rem;
+  color:black;
+  font-size: 14px;
+  opacity: 0.5;
 }
 .delete-btn {
   position: absolute;

@@ -10,13 +10,28 @@ function NotePage({ match, history }) {
     getNote();
   }, [noteId]);
 
-  const getNote = async () => {
+  const getNote = async () => { 
+    if(noteId === 'new') return
     const res = await fetch(`/api/${id}/`);
     const data = await res.json();
     console.log(data);
     setNote(data);
   };
 
+  
+  const createNote = async () => {
+    fetch(`/api/create/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(note),
+    });
+    console.log("create note triggered");
+
+  };
+
+  
   const updateNote = async () => {
     console.log('update note triggered')
     fetch(`/api/${id}/update/`, {
@@ -26,13 +41,22 @@ function NotePage({ match, history }) {
       },
       body: JSON.stringify(note),
     });
-    console.log("done with put request")
   };
 
   const handleSubmit = () => {
     console.log('about to submit')
-    updateNote();
-    history.push("/");
+    if (noteId !== 'new'){
+      updateNote();
+      history.push("/");
+    }
+    else if(noteId === 'new' & note.body === null){
+      alert("Can't save an empty note");
+    }
+    else if(noteId === 'new' & note.body !== null){
+      createNote();
+      history.push("/");
+    }
+    
   };
 
   return (

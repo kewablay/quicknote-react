@@ -1,11 +1,11 @@
 import React from 'react'
 import addButton from '../images/add-button.png'
-import AddNote from './AddNote'
+import NewNote from './NewNote'
 
 function Sidebar() {
     return (
         <div className="side-bar">
-            <AddNote />
+            <NewNote />
         </div>
     )
 }
