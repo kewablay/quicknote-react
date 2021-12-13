@@ -15,7 +15,7 @@ function NoteList() {
     console.log(data);
     setNotes(data);
   };
-
+  
   return (
     <div className="main-container">
       <Sidebar />

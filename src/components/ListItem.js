@@ -31,7 +31,7 @@ function ListItem({ note, getNotes }) {
     <div className="list-item">
       <div className="card-wrapper">
         <Link to={`/${note.id}`}>
-          <div className="card">
+          <div className="card" style={{ background: note?.color }}>
             <p className="note-title">{getTitle(note)}</p>
           </div>
         </Link>

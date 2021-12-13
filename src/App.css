@@ -10,7 +10,6 @@
 }
 
 body {
-  /* background-color: #f7f7f7; */
   background-image: linear-gradient(to right, #000000, #2d3436);
 
   /* display: flex;
@@ -90,6 +89,8 @@ a {
   flex-wrap: wrap;
   margin: auto;
 }
+
+
 .card {
   flex: 1 1 auto;
   background: rgba(128, 128, 128, 0.555);
@@ -150,7 +151,7 @@ textarea {
   height: 580px;
   border-radius: 10px;
   margin: auto;
-  background: #baffc9;
+  background: #2d3436;
   padding: 1rem;
   padding-top: 3rem;
 }
@@ -184,10 +185,10 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.27);
 }
 
-.color-list {
+/* .color-list {
   margin-top: 1rem;
   background: white;
-}
+} */
 
 .color {
   width: 1.3rem;
