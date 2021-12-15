@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListItem from "../ListItem";
 import Sidebar from "../Sidebar";
+import { motion } from 'framer-motion'
 
 function NoteList() {
   const [notes, setNotes] = useState([]);
@@ -20,11 +21,14 @@ function NoteList() {
     <div className="main-container">
       <Sidebar />
       <div className="notes-list">
-        <div className="notes-container">
+        <motion.div className="notes-container"
+        initial={{}}
+        animate={{}}
+        >
           {notes.map((note) => (
             <ListItem key={note.id} note={note} getNotes={getNotes} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

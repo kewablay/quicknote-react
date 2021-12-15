@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import deleteIcon from "../images/delete.png";
+import { motion } from "framer-motion"
 
 function ListItem({ note, getNotes }) {
   const deleteNote = async () => {
@@ -31,9 +32,11 @@ function ListItem({ note, getNotes }) {
     <div className="list-item">
       <div className="card-wrapper">
         <Link to={`/${note.id}`}>
-          <div className="card" style={{ background: note?.color }}>
+          <motion.div className="card" style={{ background: note?.color }}
+          whileHover={{scale: 1.05}}
+          >
             <p className="note-title">{getTitle(note)}</p>
-          </div>
+          </motion.div>
         </Link>
         <span className="time-stamp">{getDate(note)}</span>
         <span onClick={deleteNote} className="delete-btn">

@@ -17,8 +17,8 @@ function NotePage({ match, history }) {
     if (noteId === "new") {
       console.log("id is new");
       const { color } = location.state;
-      console.log(color)
-      return color
+      console.log(color);
+      return color;
     } else if (noteId !== "new") {
       const color = note?.color;
       console.log("color in api:", color);
@@ -44,7 +44,7 @@ function NotePage({ match, history }) {
       body: JSON.stringify(note),
     });
     console.log("create note triggered");
-    console.log(note)
+    console.log(note);
   };
 
   const updateNote = async () => {
@@ -63,8 +63,6 @@ function NotePage({ match, history }) {
     if (noteId !== "new") {
       updateNote();
       history.push("/");
-    } else if ((noteId === "new") & (note.body === null)) {
-      alert("Can't save an empty note");
     } else if ((noteId === "new") & (note.body !== null)) {
       createNote();
       history.push("/");
@@ -79,9 +77,9 @@ function NotePage({ match, history }) {
         <textarea
           defaultValue={note?.body}
           onChange={(e) => {
-            setNote({ ...note, body: e.target.value , color: getColor(note)});
+            setNote({ ...note, body: e.target.value, color: getColor(note) });
           }}
-          style={{ background: getColor(note)}}
+          style={{ background: getColor(note) }}
         ></textarea>
         <button className="save-btn" onClick={handleSubmit}>
           Save
