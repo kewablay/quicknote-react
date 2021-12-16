@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import deleteIcon from "../images/delete.png";
 import { motion } from "framer-motion";
 
-function ListItem({ note, getNotes }) {
+function ListItem({ note, getNotes}) {
   const deleteNote = async () => {
     console.log("delete function triggered");
     fetch(`/api/${note.id}/delete/`, {
@@ -18,7 +18,7 @@ function ListItem({ note, getNotes }) {
   const getTitle = (note) => {
     let title = note.body.split("\n")[0];
     if (title.length > 45) {
-      return title.slice(0, 45);
+      return title.slice(0, 45) + "...";
     }
     return title;
   };

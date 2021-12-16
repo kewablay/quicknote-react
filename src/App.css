@@ -40,6 +40,12 @@ a {
   justify-content: space-between;
   align-items: center;
 }
+.home-icon{
+  transition: .08s ease-out;
+}
+.home-icon:hover{
+  transform: scale(1.1)
+}
 .search-bar {
   width: 20rem;
   height: 2.2rem;
@@ -150,7 +156,7 @@ textarea {
   height: 580px;
   border-radius: 10px;
   margin: auto;
-  background: #2d3436;
+  background: rgb(245, 245, 245);
   padding: 1rem;
   padding-top: 3rem;
 }

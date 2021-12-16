@@ -25,10 +25,14 @@ function NoteList() {
           className="notes-container"
           initial={{ x: 50 }}
           animate={{ x: -10 }}
-          transition={{delay: .1}}
+          transition={{ delay: 0.1 }}
         >
           {notes.map((note) => (
-            <ListItem key={note.id} note={note} getNotes={getNotes} />
+            <ListItem
+              key={note.id}
+              note={note}
+              getNotes={getNotes}
+            />
           ))}
         </motion.div>
       </div>

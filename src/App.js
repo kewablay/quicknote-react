@@ -4,14 +4,17 @@ import NoteList from "./components/pages/NoteList";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import NotePage from "./components/NotePage";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
-        <Route exact path="/" component={NoteList} />
-        <Route path="/:id" component={NotePage} />
+        <AnimatePresence>
+          <Route exact path="/" component={NoteList} />
+          <Route path="/:id" component={NotePage} /> 
+        </AnimatePresence>
       </div>
     </Router>
   );

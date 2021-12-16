@@ -16,8 +16,7 @@ function Sidebar() {
     visible: {
       opacity: 1,
       transition: {
-        delay: 0.1,
-        when: "beforeChildren",
+        // when: "beforeChildren",
         staggerChildren: 0.1,
       },
     },
@@ -26,7 +25,7 @@ function Sidebar() {
   const colorVariant = {
     hidden: {
       opacity: 0,
-      y: -20,
+      y: -25,
     },
     visible: {
       opacity: 1,
@@ -41,7 +40,7 @@ function Sidebar() {
           src={addButton}
           alt="Add"
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileTap={{ scale: 0.9, rotate: 90 }}
           onClick={() => setIsOpen(!isOpen)}
         />
         <motion.div
