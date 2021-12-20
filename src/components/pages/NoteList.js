@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 function NoteList() {
   const [notes, setNotes] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     getNotes();
@@ -17,27 +18,40 @@ function NoteList() {
     setNotes(data);
   };
 
+  const allNotes = notes.filter((note) => 
+    note.body.toLowerCase().includes(searchTerm)
+  );
+
+  console.log("notes1: ", allNotes)
+
   return (
     <div className="main-container">
       <Sidebar />
       <div className="notes-list">
         <motion.div
           className="notes-container"
-          animate={{ x:5 }}
-          transition={{ 
-            type: 'spring',
-            mass: .3,
+          animate={{ x: 5 }}
+          transition={{
+            type: "spring",
+            mass: 0.3,
             damping: 2,
-            delay: 0.2 }}
+            delay: 0.2,
+          }}
         >
-          {notes.map((note) => (
-            <ListItem
-              key={note.id}
-              note={note}
-              getNotes={getNotes}
-            />
+          {allNotes.map((note) => (
+            <ListItem key={note.id} note={note} getNotes={getNotes} />
           ))}
         </motion.div>
+      </div>
+
+      <div className="search-container">
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Search Notes..."
+          onChange={(e) => setSearchTerm(e.target.value)}
+        ></input>
+        {/* <img src={toggle} alt="" /> */}
       </div>
     </div>
   );

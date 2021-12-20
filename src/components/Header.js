@@ -15,18 +15,6 @@ function header() {
           <h3 className="nav-item">Home</h3>
         </Link>
       </div>
-      {/* <form>
-                <input type="text" placeholder="Search Notes...."></input>
-            </form> */}
-
-      <div className="search-toggle">
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="Search Notes..."
-        ></input>
-        <img src={toggle} alt="" />
-      </div>
     </div>
   );
 }
