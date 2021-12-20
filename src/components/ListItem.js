@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import deleteIcon from "../images/delete.png";
-import { motion } from "framer-motion";
+import { motion,AnimatePresence } from "framer-motion";
 
 function ListItem({ note, getNotes}) {
+  const [showNote, setShowNote] = useState(true)
+
   const deleteNote = async () => {
+    setShowNote(false)
     console.log("delete function triggered");
     fetch(`/api/${note.id}/delete/`, {
       method: "DELETE",
@@ -14,6 +17,7 @@ function ListItem({ note, getNotes}) {
     });
     getNotes();
   };
+
 
   const getTitle = (note) => {
     let title = note.body.split("\n")[0];
@@ -27,17 +31,36 @@ function ListItem({ note, getNotes}) {
     return new Date(note.updated).toLocaleDateString();
   };
 
+
+  const cardVariant = {
+    hidden: {
+      opacity: 0,
+      scale: 0
+    },
+    visible: {
+      opacity: 1,
+      scale: 1
+    }
+  }
+
   return (
     <div className="list-item">
       <div className="card-wrapper">
         <Link to={`/${note.id}`}>
-          <motion.div
+        <AnimatePresence>
+        {showNote && (<motion.div
             className="card"
             style={{ background: note?.color }}
             whileHover={{ scale: 1.05 }}
+            variants={cardVariant}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
           >
             <p className="note-title">{getTitle(note)}</p>
-          </motion.div>
+          </motion.div>)}
+          
+        </AnimatePresence>
         </Link>
         <span className="time-stamp">{getDate(note)}</span>
         <motion.span

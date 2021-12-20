@@ -23,9 +23,12 @@ function NoteList() {
       <div className="notes-list">
         <motion.div
           className="notes-container"
-          initial={{ x: 50 }}
-          animate={{ x: -10 }}
-          transition={{ delay: 0.1 }}
+          animate={{ x:5 }}
+          transition={{ 
+            type: 'spring',
+            mass: .3,
+            damping: 2,
+            delay: 0.2 }}
         >
           {notes.map((note) => (
             <ListItem
