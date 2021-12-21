@@ -3,7 +3,7 @@ import ListItem from "../ListItem";
 import Sidebar from "../Sidebar";
 import { motion } from "framer-motion";
 
-function NoteList() {
+function NoteList({ toggled , setToggled }) {
   const [notes, setNotes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -18,11 +18,22 @@ function NoteList() {
     setNotes(data);
   };
 
-  const allNotes = notes.filter((note) => 
+  const allNotes = notes.filter((note) =>
     note.body.toLowerCase().includes(searchTerm)
   );
 
-  console.log("notes1: ", allNotes)
+  const toggleVariant = {
+    dark: {
+      x: 0,
+    },
+    light: {
+      x: 17,
+    },
+  };
+
+  const handleToggle = () => {
+    setToggled(!toggled);
+  };
 
   return (
     <div className="main-container">
@@ -51,7 +62,18 @@ function NoteList() {
           placeholder="Search Notes..."
           onChange={(e) => setSearchTerm(e.target.value)}
         ></input>
-        {/* <img src={toggle} alt="" /> */}
+        <motion.div
+          className="toggle-container"
+          animate={toggled ? { background: "aqua" } : { background: "grey" }}
+          onClick={handleToggle}
+        >
+          <motion.div
+            className="toggle"
+            variants={toggleVariant}
+            animate={toggled ? "light" : "dark"}
+            onClick={handleToggle}
+          ></motion.div>
+        </motion.div>
       </div>
     </div>
   );
