@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ListItem from "../ListItem";
 import Sidebar from "../Sidebar";
 import { motion } from "framer-motion";
+import searchImage from "../../images/search.png"
 
 function NoteList({ toggled , setToggled }) {
   const [notes, setNotes] = useState([]);
@@ -56,12 +57,16 @@ function NoteList({ toggled , setToggled }) {
       </div>
 
       <div className="search-container">
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="Search Notes..."
-          onChange={(e) => setSearchTerm(e.target.value)}
-        ></input>
+        <div className="search-input">
+          <img src={searchImage} alt="" className="search-img"/>
+          <input
+            className="search-bar"
+            type="text"
+            placeholder="Search Notes..."
+            onChange={(e) => setSearchTerm(e.target.value)}
+          ></input>
+        </div>
+
         <motion.div
           className="toggle-container"
           animate={toggled ? { background: "aqua" } : { background: "grey" }}

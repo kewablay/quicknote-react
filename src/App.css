@@ -33,14 +33,28 @@ body {
   color: black;
 }
 
-#light-mode a{
+#light-mode a {
   color: black;
 }
-#light-mode #home-img{
+#light-mode #home-img {
   color: black;
   background-color: black;
   border-top-left-radius: 1.2rem;
   border-top-right-radius: 1.2rem;
+}
+#light-mode .card {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#light-mode .color {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+#light-mode .toggle-container {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+#light-mode textarea {
+  background-color: #f6c492;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .App {
@@ -76,9 +90,16 @@ a {
   height: 2.2rem;
   border-radius: 0.8rem;
   padding: 0.5rem;
+  padding-left: 2rem;
   background: white;
   opacity: 0.9;
   margin-right: 1rem;
+  border: 1px solid lightblue;
+}
+.search-img {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.3rem;
 }
 .search-container {
   position: absolute;
@@ -87,6 +108,20 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.toggle-container {
+  width: 3rem;
+  height: 1.8rem;
+  background: grey;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  padding: 0.2rem;
+}
+.toggle {
+  background: white;
+  height: 100%;
+  width: 1.5rem;
+  border-radius: 1rem;
 }
 .navigation {
   display: flex;
@@ -110,20 +145,7 @@ a {
   align-items: center;
   justify-content: flex-start;
 }
-.toggle-container {
-  width: 3rem;
-  height: 1.8rem;
-  background: grey;
-  border-radius: 1rem;
-  margin-right: 1rem;
-  padding: 0.2rem;
-}
-.toggle {
-  background: white;
-  height: 100%;
-  width: 1.5rem;
-  border-radius: 1rem;
-}
+
 .side-bar img {
   margin-top: 1.5rem;
 }
@@ -151,13 +173,6 @@ a {
   font-size: 18px;
   font-weight: 400;
   color: black;
-
-  /* background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3); */
 }
 .note-title {
   margin: 0;
@@ -280,23 +295,4 @@ textarea {
   list-style-type: none;
   margin: auto;
   margin-top: 1rem;
-}
-
-/* Styles for light mode */
-@media (prefers-color-scheme: light) {
-  body {
-    background: #ece9e6; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #ffffff,
-      #ece9e6
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to right,
-      #ffffff,
-      #ece9e6
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    color: black;
-  }
 }

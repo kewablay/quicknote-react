@@ -4,7 +4,7 @@ import addButton from "../images/add-button.png";
 import { motion } from "framer-motion";
 
 function Sidebar() {
-  const colors = ["#BAE1FF", "#BAFFC9", "#C4C4C4", "#FFB3BA", "#FFFFBA"];
+  const colors = ["#BAE1FF", "#BAFFC9", "#ffdfba", "#FFB3BA", "#FFFFBA"];
 
   const [isOpen, setIsOpen] = useState(false);
 
