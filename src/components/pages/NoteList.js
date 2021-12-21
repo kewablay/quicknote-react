@@ -2,21 +2,39 @@ import React, { useState, useEffect } from "react";
 import ListItem from "../ListItem";
 import Sidebar from "../Sidebar";
 import { motion } from "framer-motion";
-import searchImage from "../../images/search.png"
+import searchImage from "../../images/search.png";
+import { NewNote } from "../NewNote";
 
-function NoteList({ toggled , setToggled }) {
+function NoteList({ toggled, setToggled }) {
   const [notes, setNotes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [isEmpty, setIsEmpty] = useState(true);
 
   useEffect(() => {
     getNotes();
   }, []);
+
+  useEffect(() => {
+    checkNoteContent(notes);
+  }, [notes]);
 
   const getNotes = async () => {
     const res = await fetch("/api/");
     const data = await res.json();
     console.log(data);
     setNotes(data);
+  };
+
+  const checkNoteContent = (notes) => {
+    console.log("notes in Checknote: ", notes);
+    if (notes.length !== 0) {
+      console.log("not zero");
+      setIsEmpty(false);
+      console.log("empty is set to false");
+    } else {
+      setIsEmpty(true);
+      console.log("is zero");
+    }
   };
 
   const allNotes = notes.filter((note) =>
@@ -40,6 +58,8 @@ function NoteList({ toggled , setToggled }) {
     <div className="main-container">
       <Sidebar />
       <div className="notes-list">
+        {isEmpty && <NewNote />}
+
         <motion.div
           className="notes-container"
           animate={{ x: 5 }}
@@ -58,7 +78,7 @@ function NoteList({ toggled , setToggled }) {
 
       <div className="search-container">
         <div className="search-input">
-          <img src={searchImage} alt="" className="search-img"/>
+          <img src={searchImage} alt="" className="search-img" />
           <input
             className="search-bar"
             type="text"

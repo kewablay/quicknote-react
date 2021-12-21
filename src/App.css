@@ -10,13 +10,13 @@
 }
 
 body {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   min-height: 100vh;
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
+
+
+/* light mode styling */
 
 #light-mode {
   background: #ece9e6; /* fallback for old browsers */
@@ -56,6 +56,8 @@ body {
   background-color: #f6c492;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
+/* light mode styling ends */
+
 
 .App {
   width: 100%;
@@ -149,6 +151,31 @@ a {
 .side-bar img {
   margin-top: 1.5rem;
 }
+
+/*---intro section starts --- */
+.intro-section{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.intro-text{
+  width: 20rem;
+  margin-top: 10%
+}
+.intro-text p {
+  margin-bottom: 1.5rem;
+}
+.cta{
+  background: #92e3a9;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+.hero-img{
+  height: 50%;
+  width: 50%;
+}
+/*---intro section ends --- */
+
 .notes-list {
   width: 100%;
 }
