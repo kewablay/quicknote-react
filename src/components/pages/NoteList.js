@@ -8,32 +8,39 @@ import { NewNote } from "../NewNote";
 function NoteList({ toggled, setToggled }) {
   const [notes, setNotes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isEmpty, setIsEmpty] = useState(true);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   useEffect(() => {
     getNotes();
   }, []);
 
-  useEffect(() => {
-    checkNoteContent(notes);
-  }, [notes]);
+  // useEffect(() => {
+  //   checkNoteContent(notes);
+  // }, [notes]);
 
   const getNotes = async () => {
     const res = await fetch("/api/");
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     setNotes(data);
+    checkNoteContent(data);
   };
 
   const checkNoteContent = (notes) => {
     console.log("notes in Checknote: ", notes);
-    if (notes.length !== 0) {
-      console.log("not zero");
-      setIsEmpty(false);
-      console.log("empty is set to false");
-    } else {
-      setIsEmpty(true);
+    let noteList = document.querySelector(".notes-container");
+    console.log(noteList);
+    // if (noteList.childElementCount !== 0) {
+    //   console.log("noteList is empty too000");
+    // }
+    console.log(notes)
+    if (notes.length === 0) {
       console.log("is zero");
+      setIsEmpty(true);
+      console.log("empty is set to true");
+    } else {
+      setIsEmpty(false);
+      console.log("not zero");
     }
   };
 

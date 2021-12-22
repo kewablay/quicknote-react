@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import deleteIcon from "../images/delete.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 function ListItem({ note, getNotes }) {
   const [showNote, setShowNote] = useState(true);
-  
+
   const deleteNote = async () => {
-    setShowNote(false);
     console.log("delete function triggered");
     fetch(`/api/${note.id}/delete/`, {
       method: "DELETE",
@@ -15,8 +14,12 @@ function ListItem({ note, getNotes }) {
         "Content-type": "application/json",
       },
     });
-    getNotes();
+    setShowNote(false);
   };
+  useEffect(() => {
+    getNotes();
+    getNotes();
+  }, [showNote]);
 
   const getTitle = (note) => {
     let title = note.body.split("\n")[0];
@@ -42,11 +45,11 @@ function ListItem({ note, getNotes }) {
   };
 
   return (
-    <div className="list-item">
-      <div className="card-wrapper">
-        <Link to={`/${note.id}`}>
-          <AnimatePresence>
-            {showNote && (
+    <AnimatePresence>
+      {showNote && (
+        <div className="list-item">
+          <div className="card-wrapper">
+            <Link to={`/${note.id}`}>
               <motion.div
                 className="card"
                 style={{ background: note?.color }}
@@ -58,20 +61,20 @@ function ListItem({ note, getNotes }) {
               >
                 <p className="note-title">{getTitle(note)}</p>
               </motion.div>
-            )}
-          </AnimatePresence>
-        </Link>
-        <span className="time-stamp">{getDate(note)}</span>
-        <motion.span
-          onClick={deleteNote}
-          className="delete-btn"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <img src={deleteIcon} alt="" />
-        </motion.span>
-      </div>
-    </div>
+            </Link>
+            <span className="time-stamp">{getDate(note)}</span>
+            <motion.span
+              onClick={deleteNote}
+              className="delete-btn"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <img src={deleteIcon} alt="" />
+            </motion.span>
+          </div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 }
 

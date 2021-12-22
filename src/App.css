@@ -102,6 +102,8 @@ a {
   position: absolute;
   left: 0.5rem;
   top: 0.3rem;
+  z-index: 7;
+  opacity: .5;
 }
 .search-container {
   position: absolute;
@@ -173,6 +175,8 @@ a {
 .hero-img{
   height: 50%;
   width: 50%;
+  max-height: 38rem;
+  max-width: 38rem; 
 }
 /*---intro section ends --- */
 
