@@ -27,12 +27,6 @@ function NoteList({ toggled, setToggled }) {
   };
 
   const checkNoteContent = (notes) => {
-    console.log("notes in Checknote: ", notes);
-    let noteList = document.querySelector(".notes-container");
-    console.log(noteList);
-    // if (noteList.childElementCount !== 0) {
-    //   console.log("noteList is empty too000");
-    // }
     console.log(notes)
     if (notes.length === 0) {
       console.log("is zero");
